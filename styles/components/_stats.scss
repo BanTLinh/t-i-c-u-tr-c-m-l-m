@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.stats {
+  padding: $spacing-lg 0;
+  background-color: $primary-color;
+  color: $white;
+
+  &__container {
+    @include flex-center(row, space-around, center);
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+
+    @include respond-to(tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    text-align: center;
+
+    &-number {
+      font-size: 42px;
+      font-weight: 800;
+      display: block;
+      line-height: 1.1;
+    }
+
+    &-label {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+  }
+}

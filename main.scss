@@ -1,0 +1,19 @@
+@use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
+@use "components/header";
+@use "components/products";
+@use "components/stats";
+@use "components/footer";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family;
+  color: $text-color;
+  line-height: 1.5;
+  background-color: $white;
+}

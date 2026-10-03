@@ -1,0 +1,64 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.featured-products {
+  padding: $spacing-xl 0;
+  background-color: $light-bg;
+
+  &__title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: $spacing-lg;
+    color: $dark-color;
+  }
+
+  &__grid {
+    @include grid-layout(260px, $spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-sm;
+  }
+
+  &__card {
+    background: $white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    &-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    &-body {
+      padding: $spacing-sm;
+    }
+
+    &-name {
+      font-size: 18px;
+      color: $dark-color;
+      margin-bottom: $spacing-xs;
+    }
+
+    &-price {
+      color: $primary-color;
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: $spacing-sm;
+    }
+
+    &-action {
+      @include button-base($primary-color, $white);
+      width: 100%;
+    }
+  }
+}

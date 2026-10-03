@@ -1,0 +1,52 @@
+@use "variables" as *;
+
+// Căn chỉnh Flexbox
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Grid layout
+@mixin grid-layout($min-width: 280px, $gap: $spacing-md) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+// Responsive
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $bp-mobile) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $bp-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (max-width: $bp-desktop) {
+      @content;
+    }
+  }
+}
+
+// Nút bấm chung
+@mixin button-base($bg: $primary-color, $color: $white) {
+  background-color: $bg;
+  color: $color;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(
+      0.9
+    ); // Làm tối màu nút khi rê chuột vào mà không lo lỗi hàm SASS
+    transform: translateY(-2px);
+  }
+}
